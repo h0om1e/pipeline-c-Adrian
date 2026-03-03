@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     stages {
-
         stage('Clonación') {
             steps {
                 echo 'Clonando el repositorio remoto...'
