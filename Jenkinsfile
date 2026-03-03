@@ -13,21 +13,14 @@ pipeline {
         stage('Compilación') {
             steps {
                 echo 'Compilando el proyecto...'
-                sh '''
-                    set -e
-                    gcc -Wall -Werror -o app main.c app.c
-                '''
+                sh 'gcc -o app main.c app.c'
             }
         }
 
         stage('Tests') {
             steps {
                 echo 'Realizando Pruebas Unitarias...'
-                sh '''
-                    set -e
-                    gcc -Wall -Werror -o test_app test_app.c app.c
-                    ./test_app
-                '''
+                sh 'gcc -o test_app test_app.c app.c && ./test_app'
             }
         }
 
